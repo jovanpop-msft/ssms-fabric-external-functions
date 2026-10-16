@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011">
+  <Metadata>
+    <Identity Id="FabricExternalFunctions" Version="0.1.33" Language="en-US" Publisher="Fabric External Functions contributors" />
+    <DisplayName>Fabric External Functions (Development Preview)</DisplayName>
+    <Description xml:space="preserve">Browse and manage Fabric Warehouse external function proxies in SSMS Object Explorer. Test in separately installed SSMS 22. Third-party SSMS extensions are not supported by Microsoft.</Description>
+  </Metadata>
+  <Installation InstalledByMsi="false" AllUsers="false">
+    <InstallationTarget Id="Microsoft.VisualStudio.Ssms" Version="[22.0,23.0)">
+      <ProductArchitecture>amd64</ProductArchitecture>
+    </InstallationTarget>
+  </Installation>
+  <Dependencies>
+    <Dependency Id="Microsoft.Framework.NDP" DisplayName=".NET Framework" Version="[4.8,)" />
+  </Dependencies>
+  <Assets>
+    <Asset Type="Microsoft.VisualStudio.VsPackage" Path="FabricExternalFunctions.pkgdef" />
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="FabricExternalFunctions.Ssms.dll" />
+  </Assets>
+  <Prerequisites>
+    <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[18.0,)" DisplayName="Visual Studio core editor" />
+  </Prerequisites>
+</PackageManifest>

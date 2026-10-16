@@ -1,0 +1,10 @@
+[$RootKey$\Packages\{bde8af5e-30f5-46b9-85a6-047aac74a170}]
+@="Fabric External Functions"
+"InprocServer32"="$WinDir$\SYSTEM32\MSCOREE.DLL"
+"Class"="FabricExternalFunctions.Ssms.ExternalFunctionsPackage"
+"Assembly"="FabricExternalFunctions.Ssms, Version=0.1.33.0, Culture=neutral, PublicKeyToken=null"
+"CodeBase"="$PackageFolder$\FabricExternalFunctions.Ssms.dll"
+"AllowsBackgroundLoad"=dword:00000001
+
+[$RootKey$\AutoLoadPackages\{d114938f-591c-46cf-a785-500a82d97410}]
+"{bde8af5e-30f5-46b9-85a6-047aac74a170}"=dword:00000002

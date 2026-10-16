@@ -1,0 +1,47 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <AssemblyName>FabricExternalFunctions.Ssms</AssemblyName>
+    <SsmsIdeDir Condition="'$(SsmsIdeDir)' == ''">C:\Program Files\Microsoft SQL Server Management Studio 22\Release\Common7\IDE</SsmsIdeDir>
+    <AutoGenerateBindingRedirects>false</AutoGenerateBindingRedirects>
+    <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+    <Version>0.1.33</Version>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FabricExternalFunctions.Core\FabricExternalFunctions.Core.csproj" />
+    <Reference Include="SqlWorkbench.Interfaces" HintPath="$(SsmsIdeDir)\SqlWorkbench.Interfaces.dll" Private="false" />
+    <Reference Include="SqlPackageBase" HintPath="$(SsmsIdeDir)\SqlPackageBase.dll" Private="false" />
+    <Reference Include="Microsoft.SqlServer.ConnectionInfo" HintPath="$(SsmsIdeDir)\Microsoft.SqlServer.ConnectionInfo.dll" Private="false" />
+    <Reference Include="Microsoft.SqlServer.RegSvrEnum" HintPath="$(SsmsIdeDir)\Microsoft.SqlServer.RegSvrEnum.dll" Private="false" />
+    <Reference Include="Microsoft.SqlServer.Management.Sdk.Sfc" HintPath="$(SsmsIdeDir)\Microsoft.SqlServer.Management.Sdk.Sfc.dll" Private="false" />
+    <Reference Include="Microsoft.Data.SqlClient" HintPath="$(SsmsIdeDir)\Microsoft.Data.SqlClient.dll" Private="false" />
+    <Reference Include="Microsoft.VisualStudio.Shell.15.0" HintPath="$(SsmsIdeDir)\PublicAssemblies\Microsoft.VisualStudio.Shell.15.0.dll" Private="false" />
+    <Reference Include="Microsoft.VisualStudio.Shell.Framework" HintPath="$(SsmsIdeDir)\PublicAssemblies\Microsoft.VisualStudio.Shell.Framework.dll" Private="false" />
+    <Reference Include="Microsoft.VisualStudio.Interop" HintPath="$(SsmsIdeDir)\PublicAssemblies\Microsoft.VisualStudio.Interop.dll" Private="false" />
+    <Reference Include="Microsoft.VisualStudio.Shell.Interop" HintPath="$(SsmsIdeDir)\PublicAssemblies\Microsoft.VisualStudio.Shell.Interop.dll" Private="false" />
+    <Reference Include="Microsoft.VisualStudio.OLE.Interop" HintPath="$(SsmsIdeDir)\PublicAssemblies\Microsoft.VisualStudio.OLE.Interop.dll" Private="false" />
+    <Reference Include="Microsoft.VisualStudio.Threading" HintPath="$(SsmsIdeDir)\PublicAssemblies\Microsoft.VisualStudio.Threading.17.x\Microsoft.VisualStudio.Threading.dll" Private="false" />
+    <Reference Include="envdte" HintPath="$(SsmsIdeDir)\PublicAssemblies\envdte.dll" Private="false" />
+    <Reference Include="Microsoft.VisualStudio.Text.UI.Wpf" HintPath="$(SsmsIdeDir)\CommonExtensions\Microsoft\Editor\Microsoft.VisualStudio.Text.UI.Wpf.dll" Private="false" />
+    <Reference Include="Microsoft.VisualStudio.Text.UI" HintPath="$(SsmsIdeDir)\CommonExtensions\Microsoft\Editor\Microsoft.VisualStudio.Text.UI.dll" Private="false" />
+    <Reference Include="Microsoft.VisualStudio.Text.Data" HintPath="$(SsmsIdeDir)\CommonExtensions\Microsoft\Editor\Microsoft.VisualStudio.Text.Data.dll" Private="false" />
+    <Reference Include="Microsoft.VisualStudio.Text.Logic" HintPath="$(SsmsIdeDir)\CommonExtensions\Microsoft\Editor\Microsoft.VisualStudio.Text.Logic.dll" Private="false" />
+    <Reference Include="Microsoft.VisualStudio.CoreUtility" HintPath="$(SsmsIdeDir)\CommonExtensions\Microsoft\Editor\Microsoft.VisualStudio.CoreUtility.dll" Private="false" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Common" />
+    <Reference Include="System.Net.Http" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\UserDataFunctions.ico" />
+    <PackageReference Include="Microsoft.VSSDK.BuildTools" Version="18.9.820"
+                      PrivateAssets="all" ExcludeAssets="all" GeneratePathProperty="true" />
+  </ItemGroup>
+  <Target Name="CheckSsmsReferences" BeforeTargets="ResolveReferences">
+    <Error Condition="!Exists('$(SsmsIdeDir)\SqlWorkbench.Interfaces.dll')" Text="Set SsmsIdeDir to the separately installed SSMS 22 Common7\IDE directory." />
+  </Target>
+</Project>
